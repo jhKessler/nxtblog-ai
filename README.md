@@ -7,8 +7,8 @@ Generate and publish SEO-optimized articles to your Next.js application within m
 ## Features
 - **Effortless Integration:** Install and configure with your NextJS projects in just a few minutes.
 - **SEO Optimization:** Generate articles optimized for search engines.
-- **SSG out of the box** Full support for static site generation, to ensure your site is fast and SEO-friendly.
-- **Realtime updates** Make changes in our online dashboard and see them reflected in your app in real-time. Our webhook system ensures that your app is always up-to-date.
+- **SSG out of the box:** Full support for static site generation, to ensure your site is fast and SEO-friendly.
+- **Realtime updates:** Make changes to your content and see them reflected in your app in real-time.
 - **Image Support:** Serve images seamlessly using our CDN.
 
 ---
@@ -37,7 +37,7 @@ npx nxtblog-ai init --path blog
 This will create a new dynamic route in your Next.js app where your blog posts will be published. For example, the above command sets up blog posts under the /blog path. You can customize this path using the --path argument.
 
 ### Step 2: Enable Image Support (Optional)
-
+To enable images in your blog posts, add the following to your next.config.js file to allow our CDN to serve the images to your server.
 ```javascript
 // next.config.js
 const config = {
