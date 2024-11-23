@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES2019",
+      "jsx": "react-jsx",
+      "module": "CommonJS",
+      "rootDir": "src",
+      "outDir": "dist",
+      "declaration": true,        // Ensures .d.ts files are generated
+      "emitDeclarationOnly": false, // Ensure .js and .d.ts are emitted
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*"]
+  }
