@@ -13,6 +13,15 @@ Generate and publish SEO-optimized articles to your Next.js application within m
 
 ---
 
+## Disclaimer
+This package is still untested with older NextJS versions than 15, if you run into any issues while setting up, please open an issue and we will look into it ASAP!
+
+---
+
+## Coming Soon:
+- [ ] Pages router support
+- [ ] Option to autogenerate images for articles
+
 ## Installation
 
 Install the package using your preferred package manager:
@@ -71,3 +80,5 @@ NEXT_ARTICLE_PROJECT_KEY=your-project-key-here
 
 That’s it! You’re ready to generate SEO-optimized articles for your blog in our dashboard.
 [learn more about generating articles](https://nxtblog.ai/docs/generate-articles)
+
+
