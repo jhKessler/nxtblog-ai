@@ -36,6 +36,11 @@ npm install nxtblog-ai --save
 pnpm install nxtblog-ai
 ```
 
+### yarn
+```bash
+yarn add nxtblog-ai
+```
+
 ## Setup
 
 ### Step 1: Initialize nxtblog.ai in Your Next.js Project
@@ -43,7 +48,7 @@ pnpm install nxtblog-ai
 ```bash
 npx nxtblog-ai init --path blog
 ```
-This will create a new dynamic route in your Next.js app where your blog posts will be published. For example, the above command sets up blog posts under the /blog path. You can customize this path using the --path argument.
+This will create a new dynamic route in your Next.js app where your blog posts will be published with our prebuilt components. For example, the above command sets up blog posts under the /blog path. You can customize this path using the --path argument.
 
 ### Step 2: Enable Image Support (Optional)
 To enable images in your blog posts, add the following to your next.config.js file to allow our CDN to serve the images to your server.
