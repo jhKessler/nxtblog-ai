@@ -21,6 +21,7 @@ This package is still untested with older NextJS versions than 15, if you run in
 ## Coming Soon:
 - [ ] Pages router support
 - [ ] Option to autogenerate images for articles
+- [ ] Scheduled publishing
 
 ## Installation
 
@@ -83,7 +84,7 @@ NEXT_ARTICLE_CDN_URL="https://nxtblog.ai/api/cdn"
 NEXT_ARTICLE_PROJECT_KEY=your-project-key-here
 ```
 
-That’s it! You’re ready to generate SEO-optimized articles for your blog in our dashboard.
+That’s it! You’re fully setup to generate SEO-optimized articles for your blog in our dashboard. They will be published in real time to your Next.js application.
 [learn more about generating articles](https://nxtblog.ai/docs/generate-articles)
 
 
