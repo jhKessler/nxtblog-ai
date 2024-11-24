@@ -1,6 +1,6 @@
 {
   "name": "nxtblog-ai",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,16 +16,21 @@
   "keywords": [],
   "author": "Johnny Kessler",
   "license": "ISC",
+  "peerDependencies": {
+    "next": ">=14.0.0 <16.0.0",
+    "react": ">=18.0.0 <19.0.0"
+  },
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "next": "^15.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "commander": "^12.1.0",
-    "next": "^15.0.1",
-    "react": "^18.3.1"
+    "commander": "^12.1.0"
   }
 }
