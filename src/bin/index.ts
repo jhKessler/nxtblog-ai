@@ -17,7 +17,7 @@ program
     .command("init")
     .requiredOption("--project-key <key>", "key is required")
     .option("--force", "force initialization", false)
-    .option("--cdn", "use a custom CDN URL", CDN_URL)
+    .option("--cdn <cdn>", "use a custom CDN URL", CDN_URL)
     .description("Initialize a new Next.js project")
     .action(async (options) => {
         console.log(`Initializing nxtblog.ai in your project...`);
