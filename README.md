@@ -6,10 +6,11 @@ Generate and publish SEO-optimized articles to your Next.js application within m
 
 ## Features
 - **Effortless Integration:** Install and configure with your NextJS projects in just a few minutes.
-- **SEO Optimization:** Generate articles optimized for search engines.
 - **SSG out of the box:** Full support for static site generation, to ensure your site is fast and SEO-friendly.
+- **SEO Optimization:** Generate articles that are optimized for search engines using ai.
 - **Realtime updates:** Make changes to your content and see them reflected in your app in real-time.
 - **Image Support:** Serve images seamlessly using our CDN.
+- **Automatic Sitemap Generation:** Let google now about your new articles without lifting a finger.
 
 ---
 
@@ -75,7 +76,7 @@ export default config;
 ```
 
 ### Step 3: Step 3: Add Your Project Key
-Add your project key and the CDN URL to your .env file (or whatever method you use to manage your environment variables). You can find the CDN URL in your project dashboard.
+Add your project key and the CDN URL to your .env file (or whatever method you use to manage your environment variables). You can find the project key in your project dashboard.
     
 ```bash
 # .env

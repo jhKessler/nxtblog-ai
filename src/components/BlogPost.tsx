@@ -24,19 +24,16 @@ export default function BlogPost({
                 maxWidth: '96rem' // equivalent to max-w-6xl
             }}>
                 <ArticleTitle title={articleData.title} />
-                {articleData.imageUrl && <Image 
-                    src={articleData.imageUrl} 
-                    draggable={false} 
-                    style={{
-                        width: '100%', // equivalent to w-full
-                        height: '16rem', // equivalent to h-64
-                        objectFit: 'cover', // equivalent to object-cover
-                        borderRadius: '0.5rem' // equivalent to rounded-lg
-                    }} 
-                    alt="image preview" 
-                    height={300} 
-                    width={300}
-                />}
+                {articleData.imageUrl && (
+                    <Image
+                        src={articleData.imageUrl}
+                        draggable={false}
+                        className="w-full object-contain rounded-lg"
+                        alt="image preview"
+                        width={600}
+                        height={600}
+                    />
+                )}
                 <ArticleIntroduction text={articleData.description} />
                 {articleData.sections.map((section, index) => (
                     <ArticleSection key={index} sectionData={section} />
