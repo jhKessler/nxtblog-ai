@@ -9,6 +9,7 @@ import getProjectInfo from '../requests/getProjectInfo';
 import createOrUpdateRobotsTxt from '../core/createRobotsTxt';
 import checkProjectStructure from '../core/checkProjectStructure';
 import { CREATE_SITEMAP_ROUTE_CODE } from '../templates/createSitemapRoute';
+import { CDN_URL } from '../config';
 
 const program = new Command();
 
@@ -16,6 +17,7 @@ program
     .command("init")
     .requiredOption("--project-key <key>", "key is required")
     .option("--force", "force initialization", false)
+    .option("--cdn", "use a custom CDN URL", CDN_URL)
     .description("Initialize a new Next.js project")
     .action(async (options) => {
         console.log(`Initializing nxtblog.ai in your project...`);
@@ -23,7 +25,7 @@ program
 
         let projectInfo
         try {
-           projectInfo = await getProjectInfo(options.projectKey);
+           projectInfo = await getProjectInfo(options.projectKey, options.cdn);
         } catch (e) {
             console.error("Error: Invalid project key.");
             process.exit(1);
