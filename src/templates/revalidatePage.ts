@@ -13,6 +13,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ art
     }
 
     revalidatePath(\`${blogPath}/\${articlePath}\`);
+    revalidatePath("${blogPath}/sitemap.xml");
 
     return NextResponse.json(
         { message: \`Rebuild static site \${articlePath}\` },

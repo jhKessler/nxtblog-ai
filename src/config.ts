@@ -1,2 +1,2 @@
 
-export const CDN_URL = "http://localhost:3000/api/cdn"
+export const CDN_URL = "https://nxtblog.ai/api/cdn"
