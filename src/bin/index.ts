@@ -78,8 +78,7 @@ program
             domain: projectInfo.domain,
             blogPath: projectInfo.blogPath
         });
-        
-        console.log(`Initialization complete. Go to https://nxtblog.ai/dashboard/project/${options.projectKey} to start writing articles.`);
+        console.log(`Initialization complete. Go to https://nxtblog.ai/dashboard/project/${projectInfo.urlId} to start generating articles.`);
     });
 
 program.parse(process.argv);

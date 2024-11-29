@@ -14,14 +14,14 @@ export default function BlogPost({
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            gap: '2rem', // equivalent to gap-y-8
-            alignItems: 'center' // equivalent to items-center
+            gap: '2rem',
+            alignItems: 'center'
         }}>
-            <div style={{
+            <article style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1rem', // equivalent to gap-y-4
-                maxWidth: '96rem' // equivalent to max-w-6xl
+                gap: '1rem',
+                maxWidth: '96rem'
             }}>
                 <ArticleTitle title={articleData.title} />
                 {articleData.imageUrl && (
@@ -38,7 +38,7 @@ export default function BlogPost({
                 {articleData.sections.map((section, index) => (
                     <ArticleSection key={index} sectionData={section} />
                 ))}
-            </div>
+            </article>
         </div>
     );
 }
