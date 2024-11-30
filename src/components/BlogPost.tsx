@@ -5,9 +5,11 @@ import ArticleTitle from "./ArticleTitle";
 import { PostContent } from "../types";
 
 export default function BlogPost({
-    articleData
+    articleData,
+    callToAction
 }: {
-    articleData: PostContent
+    articleData: PostContent;
+    callToAction: React.ReactNode;
 }) {
     return (
         <div style={{
@@ -38,6 +40,7 @@ export default function BlogPost({
                 {articleData.sections.map((section, index) => (
                     <ArticleSection key={index} sectionData={section} />
                 ))}
+                {callToAction && callToAction}
             </article>
         </div>
     );

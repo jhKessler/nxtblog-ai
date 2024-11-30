@@ -87,3 +87,43 @@ That’s it! You’re fully setup to generate SEO-optimized articles for your bl
 [learn more about generating articles](https://nxtblog.ai/docs/generate-articles)
 
 
+## Customization
+
+### Adding a Call to Action
+You can add a call to action to your blog posts to encourage your readers to take action. To do this, add the following to your /app/\<your-blog-path>/[articlePath]/page.tsx file:
+```tsx 
+// /app/<your-blog-path>/[articlePath]/page.tsx
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ articlePath: string; }>;
+}) {
+    const { articlePath } = await params;
+    const content = await getPostContent(articlePath);
+    const yourCallToAction = <div>nxblog.ai rocks!</div>; // your custom call to action
+    return (
+        <div>
+             <BlogPost 
+                articleData={content}
+                callToAction={yourCallToAction} // add this here
+            />
+        </div>
+    );
+}
+```
+
+### Specifying a layout for your blog
+If you do not have a root layout in your project that specifies styles such as font color and page layout, we recommend creating a blog specific layout that specifies these styles. To do this create a new file in your project under /app/\<your-blog-path>/layout.tsx. For example, If your path is /blog, create a file at /app/blog/layout.tsx. This file could look like this:
+
+```tsx 
+// Path: /app/blog/layout.tsx
+export default function BlogLayout({ children }: {
+    children: React.ReactNode
+}) {
+    return (
+        <main className="bg-black text-white">
+            {children}
+        </main>
+    )
+}
+```
