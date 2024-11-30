@@ -4,7 +4,20 @@ import { revalidatePath } from 'next/cache';
 
 export async function POST(request: Request, { params }: { params: Promise<{ articlePath: string }> }) {
     const { articlePath } = await params;
-
+    const authHeader = request.headers.get('Authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return NextResponse.json(
+            { message: 'Authorization header missing or invalid' },
+            { status: 403 },
+        );
+    }
+    const token = authHeader.substring('Bearer '.length);
+    if (token !== process.env.NEXT_ARTICLE_PROJECT_KEY) {
+        return NextResponse.json(
+            { message: 'Invalid token' },
+            { status: 403 },
+        );
+    }
     if (!articlePath) {
         return NextResponse.json(
             { message: \`Article path not provided\` },

@@ -18,7 +18,7 @@ This package is still untested with older NextJS versions than 15, if you run in
 
 ## Coming Soon:
 - [ ] Pages router support
-- [ ] Option to autogenerate images for articles
+- [ ] Automatically generate images for articles
 - [ ] Scheduled publishing
 - [ ] i18n support
 
