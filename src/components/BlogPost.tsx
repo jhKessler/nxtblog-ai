@@ -6,10 +6,16 @@ import { PostContent } from "../types";
 
 export default function BlogPost({
     articleData,
-    callToAction
+    callToAction,
+    imageStyles = {
+        width: '100%',
+        objectFit: 'contain',
+        borderRadius: '1rem',
+    }
 }: {
     articleData: PostContent;
     callToAction?: React.ReactNode;
+    imageStyles?: React.CSSProperties;
 }) {
     return (
         <div style={{
@@ -30,7 +36,7 @@ export default function BlogPost({
                     <Image
                         src={articleData.imageUrl}
                         draggable={false}
-                        className="w-full object-contain rounded-lg"
+                        style={imageStyles}
                         alt="image preview"
                         width={600}
                         height={600}
