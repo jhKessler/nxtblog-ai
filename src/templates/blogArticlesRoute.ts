@@ -8,6 +8,9 @@ export const revalidate = false;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
+    if (!process.env.NEXT_ARTICLE_PROJECT_KEY || !process.env.NEXT_ARTICLE_CDN_URL) {
+        throw new Error("NEXT_ARTICLE_PROJECT_KEY and NEXT_ARTICLE_CDN_URL must be set in your environment variables.");
+    }
     const articlePaths = await fetch(
         \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-articles\`
     ).then((res) =>
