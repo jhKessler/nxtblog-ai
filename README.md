@@ -127,3 +127,30 @@ export default function BlogLayout({ children }: {
     )
 }
 ```
+
+### Changing the image styles
+You can change the default image styles by passing the imageStyles prop to the BlogPost component. The imageStyles prop should be an object with css properties that you want to apply to the image. 
+
+```tsx 
+// /app/<your-blog-path>/[articlePath]/page.tsx
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ articlePath: string; }>;
+}) {
+    const { articlePath } = await params;
+    const content = await getPostContent(articlePath);
+    return (
+        <div>
+             <BlogPost 
+                articleData={content}
+                imageStyles={{
+                    borderRadius: "50%",
+                    width: "100px",
+                    height: "100px"
+                }} // add this here
+            />
+        </div>
+    );
+}
+```
