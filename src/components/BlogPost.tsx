@@ -9,7 +9,7 @@ export default function BlogPost({
     callToAction
 }: {
     articleData: PostContent;
-    callToAction: React.ReactNode;
+    callToAction?: React.ReactNode;
 }) {
     return (
         <div style={{
