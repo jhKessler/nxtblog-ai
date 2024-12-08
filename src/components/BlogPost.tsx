@@ -34,6 +34,7 @@ export default function BlogPost({
                         alt="image preview"
                         width={600}
                         height={600}
+                        priority={true}
                     />
                 )}
                 <ArticleIntroduction text={articleData.description} />
