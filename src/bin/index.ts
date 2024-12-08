@@ -27,7 +27,7 @@ program
         try {
            projectInfo = await getProjectInfo(options.projectKey, options.cdn);
         } catch (e) {
-            console.error("Error: Invalid project key.");
+            console.error("Error: Invalid project key or cdn is temporarily unavailable.");
             process.exit(1);
         }
         const blogRouteFolder = path.join(appFolderPath, projectInfo.blogPath, "[articlePath]");
