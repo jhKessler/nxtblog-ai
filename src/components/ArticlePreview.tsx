@@ -62,39 +62,36 @@ export default function ArticlePreview({
                     width: '100%'
                 }}
             >
-                {imageUrl ? (
-                    <Link href={articlePath} style={{ display: 'block', height: '100%', width: '100%' }}>
-                        <Image
-                            src={imageUrl}
-                            alt={title}
-                            fill
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </Link>
-                ) : (
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100%',
-                            width: '100%',
-                            backgroundColor: colors.placeholderBg
-                        }}
-                    >
+                <Link href={articlePath} style={{ display: 'block', height: '100%', width: '100%' }}>
+                    {imageUrl ? (<Image
+                        src={imageUrl}
+                        alt={title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                    />) : (
                         <div
                             style={{
-                                color: colors.placeholderColor,
-                                fontSize: '2.25rem',
-                                lineHeight: '2.5rem',
-                                marginBottom: '0.5rem'
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '100%',
+                                width: '100%',
+                                backgroundColor: colors.placeholderBg
                             }}
                         >
-                            📷
-                        </div>
-                    </div>
-                )}
+                            <div
+                                style={{
+                                    color: colors.placeholderColor,
+                                    fontSize: '2.25rem',
+                                    lineHeight: '2.5rem',
+                                    marginBottom: '0.5rem'
+                                }}
+                            >
+                                📷
+                            </div>
+                        </div>)}
+                </Link>
             </div>
             <div
                 style={{
