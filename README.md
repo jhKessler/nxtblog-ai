@@ -1,6 +1,6 @@
 # nxtblog.ai
 
-Generate and publish SEO-optimized articles to your Next.js application within minutes 🚀
+Create and manage your own SEO optimized content with nxtblog.ai 🚀
 
 
 ## Features
