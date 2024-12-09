@@ -26,6 +26,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ art
     }
 
     revalidatePath(\`${blogPath}/\${articlePath}\`);
+    revalidatePath(\`${blogPath}\`);
 
     return NextResponse.json(
         { message: \`Rebuild static site \${articlePath}\` },

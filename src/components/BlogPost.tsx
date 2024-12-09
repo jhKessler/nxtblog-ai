@@ -37,7 +37,7 @@ export default function BlogPost({
                         src={articleData.imageUrl}
                         draggable={false}
                         style={imageStyles}
-                        alt="image preview"
+                        alt={articleData.title}	
                         width={600}
                         height={600}
                         priority={true}

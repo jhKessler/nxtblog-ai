@@ -10,6 +10,7 @@ import createOrUpdateRobotsTxt from '../core/createRobotsTxt';
 import checkProjectStructure from '../core/checkProjectStructure';
 import { CREATE_SITEMAP_ROUTE_CODE } from '../templates/createSitemapRoute';
 import { CDN_URL } from '../config';
+import { BLOG_OVERVIEW_PAGE_CODE } from '../templates/blogOverviewPage';
 
 const program = new Command();
 
@@ -64,15 +65,20 @@ program
         const revalidateRouteFilePath = path.join(revalidateRouteFolder, 'route.ts');
         const revalidateRouteCode = getRevalidatePageEndpointCode(projectInfo.blogPath);
         const generateSitemapFilePath = path.join(appFolderPath, projectInfo.blogPath, 'sitemap.ts');
-
-        const blogPageFilePath = path.join(blogRouteFolder, 'page.tsx');
+        const blogOverviewPath = path.join(appFolderPath, projectInfo.blogPath, "page.tsx");
+        const blogPagesFilePath = path.join(blogRouteFolder, 'page.tsx');
 
         console.log(`Creating file ${revalidateRouteFilePath}`);
         fs.writeFileSync(revalidateRouteFilePath, revalidateRouteCode);
-        console.log(`Creating file ${blogPageFilePath}`);
-        fs.writeFileSync(blogPageFilePath, BLOG_ARTICLES_ROUTE_CODE);
+
+        console.log(`Creating file ${blogPagesFilePath}`);
+        fs.writeFileSync(blogPagesFilePath, BLOG_ARTICLES_ROUTE_CODE);
+
         console.log(`Creating file ${generateSitemapFilePath}`);
         fs.writeFileSync(generateSitemapFilePath, CREATE_SITEMAP_ROUTE_CODE)
+
+        console.log(`Creating file ${blogOverviewPath}`);
+        fs.writeFileSync(blogOverviewPath, BLOG_OVERVIEW_PAGE_CODE)
 
         createOrUpdateRobotsTxt({
             domain: projectInfo.domain,

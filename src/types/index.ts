@@ -12,3 +12,11 @@ export interface PostContent {
     imageUrl: string;
     sections: PostSectionData[];
 }
+
+export interface ArticlePreviewData {
+    description: string;
+    createdAt: string;
+    title: string;
+    articlePath: string;
+    imageUrl: string | null;
+}
