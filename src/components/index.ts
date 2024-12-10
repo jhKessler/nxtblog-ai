@@ -6,7 +6,7 @@ import ArticleIntroduction from "./ArticleIntroduction";
 import ArticleTitle from "./ArticleTitle";
 import BlogPost from "./BlogPost";
 import ArticlePreview from "./ArticlePreview";
-
+import BlogOverview from "./BlogOverview";
 export {
     ArticleSectionContent,
     ArticleSectionList,
@@ -15,5 +15,6 @@ export {
     ArticleIntroduction,
     ArticleTitle,
     BlogPost,
-    ArticlePreview
+    ArticlePreview,
+    BlogOverview
 }
