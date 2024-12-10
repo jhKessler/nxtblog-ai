@@ -38,8 +38,8 @@ export default function BlogPost({
                         draggable={false}
                         style={imageStyles}
                         alt={articleData.title}	
-                        width={600}
-                        height={600}
+                        width={800}
+                        height={450}
                         priority={true}
                     />
                 )}
