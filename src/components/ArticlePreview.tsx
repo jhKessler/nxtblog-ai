@@ -47,7 +47,7 @@ export default function ArticlePreview({
         };
 
     return (
-        <div
+        <Link href={articlePath} 
             style={{
                 backgroundColor: colors.background,
                 borderRadius: '0.5rem',
@@ -62,7 +62,7 @@ export default function ArticlePreview({
                     width: '100%'
                 }}
             >
-                <Link href={articlePath} style={{ display: 'block', height: '100%', width: '100%' }}>
+                <div style={{ display: 'block', height: '100%', width: '100%' }}>
                     {imageUrl ? (<Image
                         src={imageUrl}
                         alt={title}
@@ -93,7 +93,7 @@ export default function ArticlePreview({
                                 📷
                             </div>
                         </div>)}
-                </Link>
+                </div>
             </div>
             <div
                 style={{
@@ -146,6 +146,6 @@ export default function ArticlePreview({
                     </p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
