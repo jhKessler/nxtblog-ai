@@ -1,6 +1,7 @@
 export const BLOG_OVERVIEW_PAGE_CODE = `import { ArticlePreview } from "nxtblog-ai/dist/components";
-import { ArticlePreviewData } from "nxtblog-ai/dist/types";
+import { type ArticlePreviewData } from "nxtblog-ai/dist/types";
 
+export const revalidate = false;
 
 
 const getArticlePreviews = async () => {
