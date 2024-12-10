@@ -68,6 +68,7 @@ export default function ArticlePreview({
                         alt={title}
                         width={340}
                         height={200}
+                        fill
                         style={{ objectFit: 'cover' }}
                     />) : (
                         <div
