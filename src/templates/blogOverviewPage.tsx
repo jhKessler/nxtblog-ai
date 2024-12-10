@@ -6,13 +6,20 @@ export const revalidate = false;
 
 const getArticlePreviews = async () => {
     const url = \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-previews\`
-    return (await fetch(url).then((res) =>
+    return (await fetch(url, {
+        cache: 'force-cache'
+    }).then((res) =>
         res.json()
     )) as ArticlePreviewData[];
 }
 
 export default async function BlogOverview() {
-    const previews = await getArticlePreviews();
+    let previews;
+    try {
+         previews = await getArticlePreviews();
+    } catch (e) {
+        return notFound();
+    }
 
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>

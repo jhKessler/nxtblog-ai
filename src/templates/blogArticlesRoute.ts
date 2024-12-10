@@ -3,6 +3,9 @@
 export const BLOG_ARTICLES_ROUTE_CODE = `import { BlogPost } from "nxtblog-ai/dist/components";
 import { type PostContent } from "nxtblog-ai/dist/types";
 import { type Metadata } from "next";
+import Link from "next/link";
+import { Button } from "~/components/ui/button";
+import { notFound } from "next/navigation";
 
 export const revalidate = false;
 export const dynamicParams = true;
@@ -33,7 +36,9 @@ export async function generateMetadata({
     const { articlePath } = await params;
 
     const metadata = await fetch(
-       \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-metadata/\${articlePath}\`
+       \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-metadata/\${articlePath}\`, {
+        cache: 'force-cache'
+    }
     ).then((res) => res.json()) as {
         title: string;
         description: string;
@@ -46,8 +51,12 @@ export async function generateMetadata({
 
 async function getPostContent(articlePath: string) {
     const contentResponse = await fetch(
-        \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-content/\${articlePath}\`,
-    );
+        \`\${process.env.NEXT_ARTICLE_CDN_URL}/project/\${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-content/\${articlePath}\`, {
+        cache: 'force-cache'
+    });
+    if (!contentResponse.ok) {
+        throw new Error("Content not found");
+    }
     const content = await contentResponse.json() as PostContent;
     return content;
 }
@@ -57,12 +66,18 @@ export default async function Page({
 }: {
     params: Promise<{ articlePath: string; }>;
 }) {
-    const { articlePath } = await params;
-    const content = await getPostContent(articlePath);
+let content;
+    try {
+        content = await getPostContent(articlePath);
+    }
+    catch (e) {
+        notFound();
+    }
+    if (!content) {
+        notFound();
+    }
     return (
-        <div>
-             <BlogPost articleData={content} />
-        </div>
+        <BlogPost articleData={content} />
     );
 }
 `;

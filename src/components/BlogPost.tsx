@@ -8,7 +8,7 @@ export default function BlogPost({
     articleData,
     callToAction,
     imageStyles = {
-        width: '100%',
+        width: '60%',
         objectFit: 'contain',
         borderRadius: '1rem',
     }
@@ -33,15 +33,21 @@ export default function BlogPost({
             }}>
                 <ArticleTitle title={articleData.title} />
                 {articleData.imageUrl && (
-                    <Image
-                        src={articleData.imageUrl}
-                        draggable={false}
-                        style={imageStyles}
-                        alt={articleData.title}	
-                        width={800}
-                        height={450}
-                        priority={true}
-                    />
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        width: '100%'
+                    }}>
+                        <Image
+                            src={articleData.imageUrl}
+                            draggable={false}
+                            style={imageStyles}
+                            alt={articleData.title}
+                            width={800}
+                            height={450}
+                            priority={true}
+                        />
+                    </div>
                 )}
                 <ArticleIntroduction text={articleData.description} />
                 {articleData.sections.map((section, index) => (
