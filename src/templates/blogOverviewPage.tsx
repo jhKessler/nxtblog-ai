@@ -1,5 +1,6 @@
 export const BLOG_OVERVIEW_PAGE_CODE = `import { ArticlePreview } from "nxtblog-ai/dist/components";
 import { type ArticlePreviewData } from "nxtblog-ai/dist/types";
+import { notFound } from "next/navigation";
 
 export const revalidate = false;
 
@@ -17,7 +18,7 @@ export default async function BlogOverview() {
     let previews;
     try {
          previews = await getArticlePreviews();
-    } catch (e) {
+    } catch {
         return notFound();
     }
 
