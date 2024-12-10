@@ -62,7 +62,6 @@ export default function ArticlePreview({
                     width: '100%'
                 }}
             >
-                <div style={{ display: 'block', height: '100%', width: '100%' }}>
                     {imageUrl ? (<Image
                         src={imageUrl}
                         alt={title}
@@ -93,7 +92,6 @@ export default function ArticlePreview({
                                 📷
                             </div>
                         </div>)}
-                </div>
             </div>
             <div
                 style={{
