@@ -3,8 +3,6 @@
 export const BLOG_ARTICLES_ROUTE_CODE = `import { BlogPost } from "nxtblog-ai/dist/components";
 import { type PostContent } from "nxtblog-ai/dist/types";
 import { type Metadata } from "next";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
 import { notFound } from "next/navigation";
 
 export const revalidate = false;
@@ -66,11 +64,12 @@ export default async function Page({
 }: {
     params: Promise<{ articlePath: string; }>;
 }) {
-let content;
+    const { articlePath } = await params;
+    let content;
     try {
         content = await getPostContent(articlePath);
     }
-    catch (e) {
+    catch {
         notFound();
     }
     if (!content) {
