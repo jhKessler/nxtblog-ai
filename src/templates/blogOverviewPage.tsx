@@ -14,7 +14,7 @@ const getArticlePreviews = async () => {
     )) as ArticlePreviewData[];
 }
 
-export default async function BlogOverview() {
+export default async function BlogOverviewPage() {
     let previews;
     try {
          previews = await getArticlePreviews();
