@@ -42,7 +42,7 @@ yarn add nxtblog-ai
 ## Setup
 
 ### Step 1: Initialize with your existing NextJS Project
-Sign into your [nxtblog.ai account](https://nxtblog.ai/dashboard) to create a new project and copy your project key in the project dashboard. Then copy your project key in the project dashboard. Use the project key to initialize nxtblog.ai in your Next.js project. The following command will create a new dynamic route in your Next.js app where your blog posts will be published with our prebuilt components. It will use the route you specified when creating your project. If you chose /blog, it will create a new route /blog/[articlePath] where your blog posts will be published.
+Sign into your [nxtblog.ai account](https://nxtblog.ai/dashboard) to create a new project and copy your project key in the project dashboard. The following command will create a new dynamic route in your Next.js app where your blog posts will be published with our prebuilt components. It will use the route you specified when creating your project. If you chose /blog, it will create a new route /blog/[articlePath] where your blog posts will be published.
 ```bash
 npx nxtblog-ai init --project-key <your-project-key>
 ```
@@ -94,14 +94,10 @@ export default async function Page({
     const { articlePath } = await params;
     const content = await getPostContent(articlePath);
     const yourCallToAction = <div>nxblog.ai rocks!</div>; // your custom call to action
-    return (
-        <div>
-             <BlogPost 
+    return <BlogPost 
                 articleData={content}
                 callToAction={yourCallToAction} // add this here
             />
-        </div>
-    );
 }
 ```
 
@@ -133,9 +129,7 @@ export default async function Page({
 }) {
     const { articlePath } = await params;
     const content = await getPostContent(articlePath);
-    return (
-        <div>
-             <BlogPost 
+    return <BlogPost 
                 articleData={content}
                 imageStyles={{
                     borderRadius: "50%",
@@ -143,8 +137,6 @@ export default async function Page({
                     height: "100px"
                 }} // add this here
             />
-        </div>
-    );
 }
 ```
 
@@ -157,26 +149,7 @@ export default async function BlogOverview() {
     const previews = await getArticlePreviews();
 
     return (
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
-            <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '2rem' }}>Blog</h1>
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                gap: '2rem'
-            }}>
-                {previews.map((article, index) => (
-                    <ArticlePreview
-                        key={index}
-                        title={article.title}
-                        description={article.description}
-                        createdAt={new Date(article.createdAt)}
-                        articlePath={article.articlePath}
-                        imageUrl={article.imageUrl}
-                        mode="dark" // add this here
-                    />
-                ))}
-            </div>
-        </div>
+        <BlogOverview previews={previews} mode="dark" />
     )
 }
 ```
