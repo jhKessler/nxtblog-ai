@@ -65,8 +65,6 @@ export default function ArticlePreview({
                     {imageUrl ? (<Image
                         src={imageUrl}
                         alt={title}
-                        width={340}
-                        height={200}
                         fill
                         style={{ objectFit: 'cover' }}
                     />) : (
