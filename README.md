@@ -92,7 +92,7 @@ export default async function Page({
     params: Promise<{ articlePath: string; }>;
 }) {
     const { articlePath } = await params;
-    const content = await getPostContent(articlePath);
+    const content = await getArticleContent(articlePath);
     const yourCallToAction = <div>nxblog.ai rocks!</div>; // your custom call to action
     return <BlogPost 
                 articleData={content}
@@ -141,7 +141,7 @@ export default async function Page({
 ```
 
 ### Changing the blog overview style
-You can choose dark or light mode for your blog overview (the page that lists all your blog posts). To do this, add add thhe "mode" prop to the ArticlePreview component under /app/<your-blog-path>/page.tsx
+You can choose dark or light mode for your blog overview (the page that lists all your blog posts). To do this, add add the "mode" prop to the ArticlePreview component under /app/<your-blog-path>/page.tsx
 
 ```tsx 
 // /app/<your-blog-path>/page.tsx
