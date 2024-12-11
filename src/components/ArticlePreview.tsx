@@ -112,15 +112,14 @@ export default function ArticlePreview({
                             color: colors.text
                         }}
                     >
-                        <Link
-                            href={articlePath}
+                        <div
                             style={{
                                 color: accentColor,
                                 textDecoration: 'none'
                             }}
                         >
                             {title}
-                        </Link>
+                        </div>
                     </h2>
                     <p
                         style={{
