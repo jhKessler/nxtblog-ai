@@ -1,5 +1,4 @@
 export const BLOG_OVERVIEW_PAGE_CODE = `import { BlogOverview } from "nxtblog-ai/dist/components";
-import { type ArticlePreviewData } from "nxtblog-ai/dist/types";
 import { notFound } from "next/navigation";
 import { getArticlePreviews } from "nxtblog-ai/dist/requests";
 
