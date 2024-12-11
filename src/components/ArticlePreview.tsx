@@ -65,8 +65,6 @@ export default function ArticlePreview({
                     {imageUrl ? (<Image
                         src={imageUrl}
                         alt={title}
-                        width={340}
-                        height={200}
                         fill
                         style={{ objectFit: 'cover' }}
                     />) : (
@@ -114,15 +112,14 @@ export default function ArticlePreview({
                             color: colors.text
                         }}
                     >
-                        <Link
-                            href={articlePath}
+                        <div
                             style={{
                                 color: accentColor,
                                 textDecoration: 'none'
                             }}
                         >
                             {title}
-                        </Link>
+                        </div>
                     </h2>
                     <p
                         style={{
