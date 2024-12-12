@@ -11,6 +11,7 @@ import checkProjectStructure from '../core/checkProjectStructure';
 import { CREATE_SITEMAP_ROUTE_CODE } from '../templates/createSitemapRoute';
 import { CDN_URL } from '../config';
 import { BLOG_OVERVIEW_PAGE_CODE } from '../templates/blogOverviewPage';
+import createOrUpdateEnvFile from '../core/createEnvFile';
 
 const program = new Command();
 
@@ -84,6 +85,12 @@ program
             domain: projectInfo.domain,
             blogPath: projectInfo.blogPath
         });
+
+        createOrUpdateEnvFile({
+            cdnUrl: options.cdn,
+            projectKey: options.projectKey
+        });
+
         console.log(`Initialization complete. Go to https://nxtblog.ai/dashboard/project/${projectInfo.urlId} to start generating articles.`);
     });
 
