@@ -13,7 +13,7 @@ export default function ArticlePreview({
     title,
     description,
     createdAt,
-    articlePath,
+    path,
     imageUrl,
     accentColor = '#2563eb',
     mode = 'light'
@@ -21,7 +21,7 @@ export default function ArticlePreview({
     title: string
     description: string
     createdAt: Date
-    articlePath: string
+    path: string
     imageUrl: string | null
     accentColor?: string
     mode?: 'light' | 'dark'
@@ -47,7 +47,7 @@ export default function ArticlePreview({
         };
 
     return (
-        <Link href={articlePath} 
+        <Link href={path} 
             style={{
                 backgroundColor: colors.background,
                 borderRadius: '0.5rem',
@@ -62,10 +62,9 @@ export default function ArticlePreview({
                     width: '100%'
                 }}
             >
-                    {imageUrl ? (<Image
+                    {imageUrl ? (<img
                         src={imageUrl}
                         alt={title}
-                        fill
                         style={{ objectFit: 'cover' }}
                     />) : (
                         <div

@@ -1,6 +1,6 @@
 // Fetch functions
 export default async function getSitemapJson() {
-    const endpoint = `${process.env.NEXT_ARTICLE_CDN_URL}/project/${process.env.NEXT_ARTICLE_PROJECT_KEY}/get-sitemap`
+    const endpoint = `${process.env.NEXT_ARTICLE_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/sitemap`
     const response = await fetch(
         endpoint,
         { cache: "no-cache" }

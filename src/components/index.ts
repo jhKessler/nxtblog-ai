@@ -1,20 +1,13 @@
-import ArticleSectionContent from "./section/ArticleSectionContent";
-import ArticleSectionList from "./section/ArticleSectionList";
-import ArticleSection from "./section/ArticleSection";
-import ArticleSectionHeadline from "./section/ArticleSectionHeadline";
-import ArticleIntroduction from "./ArticleIntroduction";
-import ArticleTitle from "./ArticleTitle";
-import BlogPost from "./BlogPost";
 import ArticlePreview from "./ArticlePreview";
 import BlogOverview from "./BlogOverview";
+import BlogPost from "./BlogPost";
+
+import "./../styles/markdown_styles_dark.css";
+import "./../styles/markdown_styles_light.css";
+
 export {
-    ArticleSectionContent,
-    ArticleSectionList,
-    ArticleSection,
-    ArticleSectionHeadline,
-    ArticleIntroduction,
-    ArticleTitle,
-    BlogPost,
     ArticlePreview,
-    BlogOverview
+    BlogOverview,
+    BlogPost
 }
+

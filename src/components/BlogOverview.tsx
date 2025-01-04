@@ -23,7 +23,7 @@ export default function BlogOverview({
                         title={article.title}
                         description={article.description}
                         createdAt={new Date(article.createdAt)}
-                        articlePath={article.articlePath}
+                        path={article.path}
                         imageUrl={article.imageUrl}
                         mode={mode}
                     />
