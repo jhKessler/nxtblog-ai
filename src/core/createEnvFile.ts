@@ -11,7 +11,7 @@ export default function createOrUpdateEnvFile({
     // first check if the file already exisyts and has the correct values
     if (fs.existsSync('.env')) {
         const envFile = fs.readFileSync('.env', 'utf-8');
-        const cdnUrlMatch = envFile.match(/NEXT_ARTICLE_CDN_URL="(.*)"/);
+        const cdnUrlMatch = envFile.match(/NXTBLOG_CDN_URL="(.*)"/);
         const projectKeyMatch = envFile.match(/NXTBLOG_PROJECT_KEY="(.*)"/);
         if (cdnUrlMatch && projectKeyMatch) {
             if (cdnUrlMatch[1] === cdnUrl && projectKeyMatch[1] === projectKey) {
@@ -24,6 +24,6 @@ export default function createOrUpdateEnvFile({
 
         }
     }
-    const writeLine = `\n# nxtblog.ai credentials \nNEXT_ARTICLE_CDN_URL="${cdnUrl}"\nNXTBLOG_PROJECT_KEY="${projectKey}"\n`;
+    const writeLine = `\n# nxtblog.ai credentials \nNXTBLOG_CDN_URL="${cdnUrl}"\nNXTBLOG_PROJECT_KEY="${projectKey}"\n`;
     fs.appendFileSync('.env', writeLine);
 }

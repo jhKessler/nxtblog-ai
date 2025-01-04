@@ -4,10 +4,10 @@ import ArticlePreview from "./ArticlePreview";
 
 export default function BlogOverview({
     previews,
-    mode = 'light'
+    theme = 'LIGHT'
 }: {
     previews: ArticlePreviewData[]
-    mode?: 'light' | 'dark'
+    theme?: 'LIGHT' | 'DARK'
 }) {
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
@@ -25,7 +25,7 @@ export default function BlogOverview({
                         createdAt={new Date(article.createdAt)}
                         path={article.path}
                         imageUrl={article.imageUrl}
-                        mode={mode}
+                        theme={theme}
                     />
                 ))}
             </div>

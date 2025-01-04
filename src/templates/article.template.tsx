@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import { BlogPost } from "nxtblog-ai/dist/components";
 
 export const revalidate = false;
+export const dynamic = "force-static"
 
 export async function generateStaticParams() {
     return await getProjectLanguages();
@@ -46,7 +47,7 @@ export default async function ArticlePage({
             withContent: true,
         });
         return (
-            <BlogPost markdown={content.markdown} />
+            <BlogPost markdown={content.markdown!} theme={content.theme!} />
         )
     } catch (e) {
         console.error(e);

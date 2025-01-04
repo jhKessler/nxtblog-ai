@@ -16,7 +16,7 @@ export default function ArticlePreview({
     path,
     imageUrl,
     accentColor = '#2563eb',
-    mode = 'light'
+    theme = 'LIGHT'
 }: {
     title: string
     description: string
@@ -24,9 +24,9 @@ export default function ArticlePreview({
     path: string
     imageUrl: string | null
     accentColor?: string
-    mode?: 'light' | 'dark'
+    theme?: 'LIGHT' | 'DARK'
 }) {
-    const colors = mode === 'dark'
+    const colors = theme === 'DARK'
         ? {
             background: '#2d3748',
             text: '#e2e8f0',

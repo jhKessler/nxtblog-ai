@@ -1,12 +1,16 @@
+import { title } from "process";
 import { z } from "zod";
 
-const articlePreviewsSchema = z.array(z.object({
-    path: z.string(),
-}));
+const articlePathsSchema = z.object({
+    theme: z.enum(['LIGHT', 'DARK']).optional(),
+    paths: z.array(z.object({
+        path: z.string(),
+    }))
+})
 
 export default async function getArticlePaths(lang: string) {
-    const url = `${process.env.NEXT_ARTICLE_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/lang/${lang}/all`
+    const url = `${process.env.NXTBLOG_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/lang/${lang}/all`
     const response = await fetch(url);
-    const articlePreviews = articlePreviewsSchema.parse(await response.json());
-    return articlePreviews;
+    const articlePreviews = articlePathsSchema.parse(await response.json());
+    return articlePreviews.paths;
 }

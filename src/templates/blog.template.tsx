@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getArticlePreviews, getProjectLanguages } from "nxtblog-ai/dist/requests";
 
 export const revalidate = false;
+export const dynamic = "force-static"
 
 export async function generateStaticParams() {
     return await getProjectLanguages();
@@ -19,7 +20,7 @@ export default async function BlogOverviewPage({
     try {
         const articlePreviews = await getArticlePreviews(lang);
         return (
-            <BlogOverview previews={articlePreviews} />
+            <BlogOverview previews={articlePreviews.previews} theme={articlePreviews.theme}/>
         )
     } catch (e) {
         console.error(e);

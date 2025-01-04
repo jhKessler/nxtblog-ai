@@ -55,6 +55,20 @@ program
             targetPath: blogOverviewPath,
             force: options.force
         })
+        // blog redirect
+        const redirectPath = path.join(blogRouteFolder, "page.tsx");
+        const redirectCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/redirect.template.ts"),
+            replace: "__BLOG_PATH__",
+            replaceWith: projectInfo.blogPath
+        })
+        console.log(`Creating file ${redirectPath}`);
+        copyFileToProject({
+            fileContents: redirectCode,
+            targetPath: redirectPath,
+            force: options.force
+        })
+
         // create blog article
         const blogArticlePath = path.join(blogRouteFolderWithLang, "page.tsx");
         const blogArticleCode = readFileAndReplaceContent({

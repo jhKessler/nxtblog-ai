@@ -72,6 +72,8 @@
     font-weight: 600;
     padding-bottom: .3em;
     font-size: 2em;
+    width: 100%;
+    text-align: center;
   }
   
   .markdown-body-light mark {
@@ -861,11 +863,11 @@
     color: #cf222e;
   }
 
-  .markdown-body-light ._imageWrapper_uazmk_922 {
+  .markdown-body-light p:has(img) {
     width: 100%;
     display: flex;
     justify-content: center;
-  }
+  } 
   
   .markdown-body-light .pl-s,
   .markdown-body-light .pl-pds,

@@ -72,6 +72,7 @@
     font-weight: 600;
     padding-bottom: .3em;
     font-size: 2em;
+    width: 100%;
     text-align: center;
   }
   
@@ -279,11 +280,11 @@
     font-size: 1.5em;
   }
 
-  .markdown-body-dark ._imageWrapper_uazmk_922 {
+  .markdown-body-dark p:has(img) {
     width: 100%;
     display: flex;
     justify-content: center;
-  }
+  } 
   
   .markdown-body-dark h3 {
     font-weight: 600;

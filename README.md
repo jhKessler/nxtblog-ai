@@ -52,7 +52,7 @@ Add your project key from the previous step and the CDN URL to your .env file.
 ```bash
 # .env
 # ... your other env variables ...
-NEXT_ARTICLE_CDN_URL="https://nxtblog.ai/api/cdn/v1"
+NXTBLOG_CDN_URL="https://nxtblog.ai/api/cdn/v1"
 NXTBLOG_PROJECT_KEY=your-project-key-here
 ```
 

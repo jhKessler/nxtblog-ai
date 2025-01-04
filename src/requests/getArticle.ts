@@ -6,7 +6,8 @@ const articleSchema = z.object({
     title: z.string(),
     path: z.string(),
     imageUrl: z.string().nullable(),
-    markdown: z.string().optional()
+    markdown: z.string().optional(),
+    theme: z.enum(['LIGHT', 'DARK']).optional(),
 })
 
 export default async function getArticle({
@@ -18,7 +19,7 @@ export default async function getArticle({
     path: string,
     withContent?: boolean
 }) {
-    const url = `${process.env.NEXT_ARTICLE_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/lang/${lang}/article/${path}?withContent=${withContent ? 'true' : 'false'}`;
+    const url = `${process.env.NXTBLOG_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/lang/${lang}/article/${path}?withContent=${withContent ? 'true' : 'false'}`;
     const response = await fetch(url);
     const article = articleSchema.parse(await response.json());
     return article;

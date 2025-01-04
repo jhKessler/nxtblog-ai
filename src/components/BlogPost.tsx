@@ -1,15 +1,16 @@
 import ReactMarkdown from "react-markdown";
-import "./../styles/markdown_styles_dark.css";
-import "./../styles/markdown_styles_light.css";
+
 
 export default function BlogPost({
-    markdown
+    markdown,
+    theme
 }: {
-    markdown: string
+    markdown: string;
+    theme: "LIGHT" | "DARK";
 }) {
     return <article className="bg-black text-white">
         <ReactMarkdown className={
-            process.env.NXTBLOG_THEME === "dark" ? "markdown-body-dark" : "markdown-body-light"
+           theme === "DARK" ? "markdown-body-dark" : "markdown-body-light"
         }>
             {markdown}
         </ReactMarkdown>
