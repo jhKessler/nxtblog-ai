@@ -58,7 +58,7 @@ program
         // blog redirect
         const redirectPath = path.join(blogRouteFolder, "page.tsx");
         const redirectCode = readFileAndReplaceContent({
-            filepath: path.join(TEMPLATES_DIR, "/redirect.template.ts"),
+            filepath: path.join(TEMPLATES_DIR, "/redirect.template.tsx"),
             replace: "__BLOG_PATH__",
             replaceWith: projectInfo.blogPath
         })
