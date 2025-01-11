@@ -1,8 +1,7 @@
-// @ts-expect-error
-import { BlogOverview } from "nxtblog-ai/dist/components";
+import React from "react";
+import { BlogOverview } from "nxtblog-ai/components";
 import { notFound } from "next/navigation";
-// @ts-expect-error
-import { getArticlePreviews, getProjectLanguages } from "nxtblog-ai/dist/requests";
+import { getArticlePreviews, getProjectLanguages } from "nxtblog-ai/requests";
 
 export const revalidate = false;
 

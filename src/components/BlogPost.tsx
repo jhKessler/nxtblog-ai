@@ -1,4 +1,7 @@
+import React from "react";
 import ReactMarkdown from "react-markdown";
+import "./styles/markdown_styles_dark.css";
+import "./styles/markdown_styles_light.css";
 
 
 export default function BlogPost({

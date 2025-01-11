@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
 
 function formatDate(date: Date): string {

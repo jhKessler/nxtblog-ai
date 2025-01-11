@@ -1,6 +1,5 @@
 import { notFound, redirect } from "next/navigation"
-// @ts-expect-error
-import { getProjectLanguages } from "nxtblog-ai/dist/requests"
+import { getProjectLanguages } from "nxtblog-ai/requests"
 
 export const dynamic = "force-static"
 export const revalidate = false

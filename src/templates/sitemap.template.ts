@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next'
-// @ts-expect-error
-import { getSitemapJson } from "nxtblog-ai/dist/requests";
+import { getSitemapJson } from "nxtblog-ai/requests";
 
 // revalidate every 12 hours
 export const revalidate = 43200;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { ArticlePreviewData } from "../types";
 import ArticlePreview from "./ArticlePreview";
 
