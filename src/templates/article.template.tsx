@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getArticle, getProjectLanguages } from "nxtblog-ai/requests";
 import { Metadata } from "next";
 import { BlogPost } from "nxtblog-ai/components";
+import "nxtblog-ai/components/index.css"
 
 export const revalidate = false;
 
