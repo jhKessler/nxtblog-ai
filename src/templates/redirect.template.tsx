@@ -7,13 +7,12 @@ export const revalidate = false
 
 export default async function BlogRedirectPage() {
     const availableLanguages = await getProjectLanguages()
+    let defaultLanguage;
     try {
-        // Redirect to the first available language
-        const defaultLanguage = availableLanguages[0].params.lang
-        redirect(`__BLOG_PATH__/${defaultLanguage}`)
+        defaultLanguage = availableLanguages[0].params.lang
     } catch {
-        console.error(`No articles found. Generate some articles on https://nxtblog.ai first`)
+        console.warn(`No articles found. Generate some articles on https://nxtblog.ai first`)
         notFound()
     }
-    return null
+    redirect(`__BLOG_PATH__/${defaultLanguage}`)
 }

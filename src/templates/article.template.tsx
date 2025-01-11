@@ -7,7 +7,6 @@ import { Metadata } from "next";
 import { BlogPost } from "nxtblog-ai/dist/components";
 
 export const revalidate = false;
-export const dynamic = "force-static"
 
 export async function generateStaticParams() {
     return await getProjectLanguages();

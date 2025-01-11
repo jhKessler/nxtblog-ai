@@ -47,12 +47,21 @@ export default function ArticlePreview({
         };
 
     return (
-        <Link href={path} 
+        <Link
+            href={path}
             style={{
+                /** 
+                 * Ensure the card doesn’t exceed 600px, but fill up 
+                 * the space if less than 600px.
+                 */
+                maxWidth: '600px',
+                width: '100%',
+                display: 'block', // So it can respect max-width properly
                 backgroundColor: colors.background,
                 borderRadius: '0.5rem',
                 boxShadow: colors.boxShadow,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                margin: '0 auto' // center it, optional
             }}
         >
             <div
@@ -62,33 +71,36 @@ export default function ArticlePreview({
                     width: '100%'
                 }}
             >
-                    {imageUrl ? (<img
+                {imageUrl ? (
+                    <img
                         src={imageUrl}
                         alt={title}
-                        style={{ objectFit: 'cover' }}
-                    />) : (
+                        style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+                    />
+                ) : (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100%',
+                            width: '100%',
+                            backgroundColor: colors.placeholderBg
+                        }}
+                    >
                         <div
                             style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '100%',
-                                width: '100%',
-                                backgroundColor: colors.placeholderBg
+                                color: colors.placeholderColor,
+                                fontSize: '2.25rem',
+                                lineHeight: '2.5rem',
+                                marginBottom: '0.5rem'
                             }}
                         >
-                            <div
-                                style={{
-                                    color: colors.placeholderColor,
-                                    fontSize: '2.25rem',
-                                    lineHeight: '2.5rem',
-                                    marginBottom: '0.5rem'
-                                }}
-                            >
-                                📷
-                            </div>
-                        </div>)}
+                            📷
+                        </div>
+                    </div>
+                )}
             </div>
             <div
                 style={{
@@ -105,20 +117,18 @@ export default function ArticlePreview({
                             fontSize: '1.25rem',
                             fontWeight: 600,
                             marginBottom: '0.5rem',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
+                            // Removed truncation styles so the headline can wrap
                             color: colors.text
                         }}
                     >
-                        <div
+                        <span
                             style={{
                                 color: accentColor,
                                 textDecoration: 'none'
                             }}
                         >
                             {title}
-                        </div>
+                        </span>
                     </h2>
                     <p
                         style={{

@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next'
 // @ts-expect-error
 import { getSitemapJson } from "nxtblog-ai/dist/requests";
 
-// revalidate every day
-export const revalidate = 86400;
+// revalidate every 12 hours
+export const revalidate = 43200;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const sitemapJson = await getSitemapJson()
