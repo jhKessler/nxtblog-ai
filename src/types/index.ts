@@ -17,6 +17,6 @@ export interface ArticlePreviewData {
     description: string;
     createdAt: string;
     title: string;
-    articlePath: string;
+    path: string;
     imageUrl: string | null;
 }

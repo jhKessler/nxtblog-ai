@@ -1,19 +1,20 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import fs from 'fs';
 import * as path from 'path';
-import { getRevalidatePageEndpointCode } from '../templates/revalidatePage';
-import { BLOG_ARTICLES_ROUTE_CODE } from '../templates/blogArticlesRoute';
 import getProjectInfo from '../requests/getProjectInfo';
 import createOrUpdateRobotsTxt from '../core/createRobotsTxt';
 import checkProjectStructure from '../core/checkProjectStructure';
-import { CREATE_SITEMAP_ROUTE_CODE } from '../templates/createSitemapRoute';
 import { CDN_URL } from '../config';
-import { BLOG_OVERVIEW_PAGE_CODE } from '../templates/blogOverviewPage';
 import createOrUpdateEnvFile from '../core/createEnvFile';
+import createBlogDir from '../core/createBlogDir';
+import readFileAndReplaceContent from '../core/readFileAndReplaceContent';
+import copyFileToProject from '../core/copyFileToProject';
+import fs from "fs";
 
 const program = new Command();
+const TEMPLATES_DIR = path.join(__dirname, '..', "..", "src", 'templates');
+
 
 program
     .command("init")
@@ -25,61 +26,75 @@ program
         console.log(`Initializing nxtblog.ai in your project...`);
         const appFolderPath = checkProjectStructure();
 
-        let projectInfo
-        try {
-           projectInfo = await getProjectInfo(options.projectKey, options.cdn);
-        } catch (e) {
-            console.error("Error: Invalid project key or cdn is temporarily unavailable.");
-            process.exit(1);
-        }
-        const blogRouteFolder = path.join(appFolderPath, projectInfo.blogPath, "[articlePath]");
-        
-        if (fs.existsSync(blogRouteFolder)) {
-            console.warn(
-                `Warning: Folder ${blogRouteFolder} already exists. Have you already initialized nxtblog.ai?`
-            );
-            if (!options.force) {
-                console.error("Use --force to overwrite existing files. Stopping initialization...");
-                process.exit(1);
-            }
-        } else {
-            console.log(`Creating folder ${blogRouteFolder}`);
-            fs.mkdirSync(blogRouteFolder, { recursive: true });
-        }
+        const projectInfo = await getProjectInfo(options.projectKey, options.cdn);
+
+        // create blog dirs
+        const blogRouteFolder = path.join(appFolderPath, projectInfo.blogPath);
+        const blogRouteFolderWithLang = path.join(blogRouteFolder, "[lang]", "[path]");
+        createBlogDir({
+            blogRouteFolder: blogRouteFolderWithLang,
+            force: options.force
+        })
+        // create sitemap file
+        const generateSitemapFilePath = path.join(appFolderPath, projectInfo.blogPath, 'sitemap.ts');
+        const sitemapCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/sitemap.template.ts"),
+        })
+        copyFileToProject({
+            fileContents: sitemapCode,
+            targetPath: generateSitemapFilePath,
+            force: options.force
+        })
+        // create blog overview
+        const blogOverviewPath = path.join(blogRouteFolder, "[lang]", "page.tsx");
+        const blogOverviewCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/blog.template.tsx"),
+        })
+        copyFileToProject({
+            fileContents: blogOverviewCode,
+            targetPath: blogOverviewPath,
+            force: options.force
+        })
+        // blog redirect
+        const redirectPath = path.join(blogRouteFolder, "page.tsx");
+        const redirectCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/redirect.template.tsx"),
+            replace: "__BLOG_PATH__",
+            replaceWith: projectInfo.blogPath
+        })
+        console.log(`Creating file ${redirectPath}`);
+        copyFileToProject({
+            fileContents: redirectCode,
+            targetPath: redirectPath,
+            force: options.force
+        })
+
+        // create blog article
+        const blogArticlePath = path.join(blogRouteFolderWithLang, "page.tsx");
+        const blogArticleCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/article.template.tsx"),
+        })
+        copyFileToProject({
+            fileContents: blogArticleCode,
+            targetPath: blogArticlePath,
+            force: options.force
+        })
 
         // Create the revalidate route
-        const revalidateRouteFolder = path.join(appFolderPath, 'api', 'revalidate', '[articlePath]');
-
-        if (fs.existsSync(revalidateRouteFolder)) {
-            console.warn(
-                `Warning: Folder ${revalidateRouteFolder} already exists. Have you already initialized nxtblog.ai?`
-            );
-            if (!options.force) {
-                console.error("Use --force to overwrite existing files. Stopping initialization...");
-                process.exit(1);
-            }
-        } else {
-            console.log(`Creating folder ${revalidateRouteFolder}`);
-            fs.mkdirSync(revalidateRouteFolder, { recursive: true });
-        }
-
+        const revalidateRouteFolder = path.join(appFolderPath, 'api', 'webhooks', "nxtblog");
         const revalidateRouteFilePath = path.join(revalidateRouteFolder, 'route.ts');
-        const revalidateRouteCode = getRevalidatePageEndpointCode(projectInfo.blogPath);
-        const generateSitemapFilePath = path.join(appFolderPath, projectInfo.blogPath, 'sitemap.ts');
-        const blogOverviewPath = path.join(appFolderPath, projectInfo.blogPath, "page.tsx");
-        const blogPagesFilePath = path.join(blogRouteFolder, 'page.tsx');
-
+        fs.mkdirSync(revalidateRouteFolder, { recursive: true });
+        const revalidateCode = readFileAndReplaceContent({
+            filepath: path.join(TEMPLATES_DIR, "/revalidate.template.ts"),
+            replace: "__BLOG_PATH__",
+            replaceWith: projectInfo.blogPath
+        })
         console.log(`Creating file ${revalidateRouteFilePath}`);
-        fs.writeFileSync(revalidateRouteFilePath, revalidateRouteCode);
-
-        console.log(`Creating file ${blogPagesFilePath}`);
-        fs.writeFileSync(blogPagesFilePath, BLOG_ARTICLES_ROUTE_CODE);
-
-        console.log(`Creating file ${generateSitemapFilePath}`);
-        fs.writeFileSync(generateSitemapFilePath, CREATE_SITEMAP_ROUTE_CODE)
-
-        console.log(`Creating file ${blogOverviewPath}`);
-        fs.writeFileSync(blogOverviewPath, BLOG_OVERVIEW_PAGE_CODE)
+        copyFileToProject({
+            fileContents: revalidateCode,
+            targetPath: revalidateRouteFilePath,
+            force: options.force
+        })
 
         createOrUpdateRobotsTxt({
             domain: projectInfo.domain,

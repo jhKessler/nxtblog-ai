@@ -1,0 +1,76 @@
+/* light */
+.markdown-body-light {
+  color-scheme: light;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  /* Changed base color from #1f2328 to a softer gray */
+  color: #4a4a4a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Increased font size */
+  font-size: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body-light .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+/* Heading adjustments */
+.markdown-body-light h1 {
+  /* Explicitly set heading color to black */
+  color: #000000;
+  margin: 0.67em 0;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+/* Listing layout fix: give ul/ol some margin, keep indent */
+.markdown-body-light ul,
+.markdown-body-light ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 2em; /* Keep indentation */
+}
+
+.markdown-body-light ul {
+  list-style-type: disc; /* Add bullet points */
+}
+
+.markdown-body-light ul ul {
+  list-style-type: circle; /* Use a different style for nested lists */
+}
+
+.markdown-body-light ul ul ul {
+  list-style-type: square; /* Use a different style for deeper nested lists */
+}
+
+.markdown-body-light hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid #d1d9e0b3;
+  height: 0.25em;
+  padding: 0;
+  margin: 1.5rem 0;
+  background-color: #d1d9e0;
+  border: 0;
+}
+
+.markdown-body-light input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Keep remaining styles unchanged unless specific changes are needed */

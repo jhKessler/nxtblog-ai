@@ -1,60 +1,28 @@
-import Image from "next/image";
-import ArticleIntroduction from "./ArticleIntroduction";
-import ArticleSection from "./section/ArticleSection";
-import ArticleTitle from "./ArticleTitle";
-import { PostContent } from "../types";
+import ReactMarkdown from "react-markdown";
+
 
 export default function BlogPost({
-    articleData,
-    callToAction,
-    imageStyles = {
-        width: '60%',
-        objectFit: 'contain',
-        borderRadius: '1rem',
-    }
+    markdown,
+    theme
 }: {
-    articleData: PostContent;
-    callToAction?: React.ReactNode;
-    imageStyles?: React.CSSProperties;
+    markdown: string;
+    theme: "LIGHT" | "DARK";
 }) {
-    return (
+    return <article style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    }}>
         <div style={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2rem',
-            alignItems: 'center'
+            width: "100%",
+            maxWidth: "1100px"
         }}>
-            <article style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-                maxWidth: '96rem'
-            }}>
-                <ArticleTitle title={articleData.title} />
-                {articleData.imageUrl && (
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        width: '100%'
-                    }}>
-                        <Image
-                            src={articleData.imageUrl}
-                            draggable={false}
-                            style={imageStyles}
-                            alt={articleData.title}
-                            width={800}
-                            height={450}
-                            priority={true}
-                        />
-                    </div>
-                )}
-                <ArticleIntroduction text={articleData.description} />
-                {articleData.sections.map((section, index) => (
-                    <ArticleSection key={index} sectionData={section} />
-                ))}
-                {callToAction && callToAction}
-            </article>
+
+        <ReactMarkdown className={
+           theme === "DARK" ? "markdown-body-dark" : "markdown-body-light"
+        }>
+            {markdown}
+        </ReactMarkdown>
         </div>
-    );
+    </article>
 }

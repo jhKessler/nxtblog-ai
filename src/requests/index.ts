@@ -1,12 +1,12 @@
-import getArticleContent from "./getArticleContent";
 import getArticlePaths from "./getArticlePaths";
-import getArticleMetadata from "./getArticleMetadata";
-import getSitemapJson from "./getSitemapUrls";
 import getArticlePreviews from "./getArticlePreviews";
+import getProjectLanguages from "./getProjectLanguages";
+import getArticle from "./getArticle";
+import getSitemapJson from "./getSitemapJson";
 export { 
-    getArticleContent, 
     getArticlePaths, 
-    getArticleMetadata, 
     getSitemapJson,
-    getArticlePreviews
+    getArticlePreviews,
+    getProjectLanguages,
+    getArticle
 };

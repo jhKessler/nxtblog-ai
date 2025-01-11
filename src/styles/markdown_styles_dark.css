@@ -1,0 +1,83 @@
+/* dark */
+.markdown-body-dark {
+  color-scheme: dark;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  /* Changed from #f0f6fc to a Medium-style gray */
+  color: #c8c8c8; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body-dark .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+/* keep your existing anchor hover effect code ... */
+
+/* Heading adjustments */
+.markdown-body-dark h1 {
+  /* If there was an existing color, remove it. Now set to white: */
+  color: #ffffff;
+  margin: 0.67em 0;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+/* keep your existing mark, small, sub, sup, etc. ... */
+
+/* Listing layout fix: give ul/ol some margin, keep indent */
+.markdown-body-dark ul,
+.markdown-body-dark ol {
+  margin-top: 1em; 
+  margin-bottom: 1em;
+  padding-left: 2em; /* keep indentation */
+}
+
+.markdown-body-dark ul {
+  margin-top: 1em; 
+  margin-bottom: 1em;
+  padding-left: 2em; /* keep indentation */
+  list-style-type: disc; /* Add bullet points */
+}
+
+.markdown-body-dark ul ul {
+  list-style-type: circle; /* Optional: Use a different style for nested lists */
+}
+
+.markdown-body-dark ul ul ul {
+  list-style-type: square; /* Optional: Use a different style for deeper nested lists */
+}
+
+/* Keep the rest of your CSS below unchanged, unless you want further tweaks */
+
+.markdown-body-dark hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid #3d444db3;
+  height: .25em;
+  padding: 0;
+  margin: 1.5rem 0;
+  background-color: #3d444d;
+  border: 0;
+}
+
+.markdown-body-dark input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
