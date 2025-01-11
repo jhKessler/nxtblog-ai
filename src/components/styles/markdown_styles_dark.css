@@ -21,6 +21,10 @@
 
 /* keep your existing anchor hover effect code ... */
 
+.markdown-body-dark ol {
+  list-style-type: decimal; /* Add numbers for ordered lists */
+}
+
 /* Heading adjustments */
 .markdown-body-dark h1 {
   /* If there was an existing color, remove it. Now set to white: */

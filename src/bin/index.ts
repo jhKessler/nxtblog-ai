@@ -2,14 +2,14 @@
 
 import { Command } from 'commander';
 import * as path from 'path';
-import getProjectInfo from '../requests/getProjectInfo';
-import createOrUpdateRobotsTxt from '../core/createRobotsTxt';
-import checkProjectStructure from '../core/checkProjectStructure';
-import { CDN_URL } from '../config';
-import createOrUpdateEnvFile from '../core/createEnvFile';
-import createBlogDir from '../core/createBlogDir';
-import readFileAndReplaceContent from '../core/readFileAndReplaceContent';
-import copyFileToProject from '../core/copyFileToProject';
+import getProjectInfo from './getProjectInfo';
+import createOrUpdateRobotsTxt from './core/createRobotsTxt';
+import checkProjectStructure from './core/checkProjectStructure';
+import { CDN_URL } from './config';
+import createOrUpdateEnvFile from './core/createEnvFile';
+import createBlogDir from './core/createBlogDir';
+import readFileAndReplaceContent from './core/readFileAndReplaceContent';
+import copyFileToProject from './core/copyFileToProject';
 import fs from "fs";
 
 const program = new Command();

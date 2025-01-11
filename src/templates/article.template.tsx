@@ -1,10 +1,8 @@
-
+import React from "react";
 import { notFound } from "next/navigation";
-// @ts-expect-error
-import { getArticle, getProjectLanguages } from "nxtblog-ai/dist/requests";
+import { getArticle, getProjectLanguages } from "nxtblog-ai/requests";
 import { Metadata } from "next";
-// @ts-expect-error
-import { BlogPost } from "nxtblog-ai/dist/components";
+import { BlogPost } from "nxtblog-ai/components";
 
 export const revalidate = false;
 

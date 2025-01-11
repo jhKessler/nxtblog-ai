@@ -40,6 +40,10 @@
   padding-left: 2em; /* Keep indentation */
 }
 
+.markdown-body-dark ol {
+  list-style-type: decimal; /* Add numbers for ordered lists */
+}
+
 .markdown-body-light ul {
   list-style-type: disc; /* Add bullet points */
 }
