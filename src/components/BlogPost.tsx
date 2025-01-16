@@ -16,6 +16,7 @@ export default function BlogPost({
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
+        padding: '20px',
     }}>
         <div style={{
             width: "100%",

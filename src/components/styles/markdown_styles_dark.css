@@ -93,6 +93,11 @@
   list-style-type: circle; /* Optional: Use a different style for nested lists */
 }
 
+.markdown-body-dark a {
+  color: #58a6ff; /* Changed from #0366d6 to a Medium-style blue */
+  text-decoration: "underline";
+}
+
 .markdown-body-dark ul ul ul {
   list-style-type: square; /* Optional: Use a different style for deeper nested lists */
 }

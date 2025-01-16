@@ -69,6 +69,11 @@
   color: black; /* Removed quotes for proper CSS syntax */
 }
 
+.markdown-body-dark a {
+  color: #58a6ff; /* Changed from #0366d6 to a Medium-style blue */
+  text-decoration: "underline";
+}
+
 .markdown-body-light h1 {
   font-size: 2.5rem; /* Largest size */
 }

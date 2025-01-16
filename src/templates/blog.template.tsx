@@ -3,6 +3,7 @@ import { BlogOverview } from "nxtblog-ai/components";
 import { notFound } from "next/navigation";
 import { getArticlePreviews, getProjectLanguages } from "nxtblog-ai/requests";
 
+export const dynamicParams = true;
 export const revalidate = false;
 
 export async function generateStaticParams() {
@@ -18,11 +19,11 @@ export default async function BlogOverviewPage({
     try {
         const articlePreviews = await getArticlePreviews(lang);
         return (
-            <BlogOverview previews={articlePreviews.previews} theme={articlePreviews.theme}/>
+            <BlogOverview previews={articlePreviews.previews} theme={articlePreviews.theme} />
         )
     } catch (e) {
         console.error(e);
         notFound();
     }
-    
+
 }
