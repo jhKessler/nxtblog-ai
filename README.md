@@ -55,7 +55,7 @@ That’s it! You’re fully setup to generate SEO-optimized articles for your bl
 [start creating your first content](https://nxtblog.ai/dashboard)
 
 ### Specifying a layout for your blog
-By default, nxtblog.ai uses the root layout of your project to render the blog tomake sure it has the same styles as the rest of your website.
+By default, nxtblog.ai uses the root layout of your project to render the blog to make sure it has the same styles as the rest of your website.
 If you do not have a root layout in your project that specifies styles such as font color and page layout, we recommend creating a blog specific layout that specifies these styles. To do this create a new file in your project under /app/\<your-blog-path>/layout.tsx. For example, If your path is /blog, create a file at /app/blog/layout.tsx. This file could look like this:
 
 ```tsx 

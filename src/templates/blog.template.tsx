@@ -16,10 +16,17 @@ export default async function BlogOverviewPage({
     params: Promise<{ lang: string; }>;
 }) {
     const { lang } = await params;
+    const availableLanguages = await getProjectLanguages();
     try {
         const articlePreviews = await getArticlePreviews(lang);
         return (
-            <BlogOverview previews={articlePreviews.previews} theme={articlePreviews.theme} />
+            <BlogOverview 
+                previews={articlePreviews.previews}
+                theme={articlePreviews.theme}
+                lang={lang}
+                availableLanugages={availableLanguages}
+                blogPath="__BLOG_PATH__"
+             />
         )
     } catch (e) {
         console.error(e);
