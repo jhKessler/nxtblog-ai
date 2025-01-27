@@ -8,7 +8,7 @@ export default function createOrUpdateRobotsTxt({
     domain: string;
     blogPath: string;
 }) {
-    const writeLine = `Sitemap: ${domain}${blogPath}/sitemap.xml\n`;
+    const writeLine = `\nSitemap: ${domain}${blogPath}/sitemap.xml\n`;
 
     if (!fs.existsSync('public')) {
         console.warn('No public directory found, creating one...');
