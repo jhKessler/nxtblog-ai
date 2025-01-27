@@ -33,6 +33,7 @@ export default function BlogOverview({
                     <h1 style={{
                         fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '2rem', maxWidth: '600px',
                         width: '100%',
+                        color: theme === 'DARK' ? '#ffffff' : '#000000'
                     }}>Blog</h1>
                     <LanguageSelector
                         currentLanguage={lang}

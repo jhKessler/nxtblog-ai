@@ -125,3 +125,12 @@
   line-height: inherit;
 }
 
+.markdown-body-dark p:has(img) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.markdown-body-dark img {
+  border-radius: 2%;
+}

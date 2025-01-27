@@ -1,6 +1,6 @@
 {
   "name": "nxtblog-ai",
-  "version": "2.10.1",
+  "version": "2.10.5",
   "description": "Make more sales with AI blogs. Generate and publish high quality content to your NextJS app in minutes.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
