@@ -49,6 +49,8 @@ program
         const blogOverviewPath = path.join(blogRouteFolder, "[lang]", "page.tsx");
         const blogOverviewCode = readFileAndReplaceContent({
             filepath: path.join(TEMPLATES_DIR, "/blog.template.tsx"),
+            replace: "__BLOG_PATH__",
+            replaceWith: projectInfo.blogPath
         })
         copyFileToProject({
             fileContents: blogOverviewCode,

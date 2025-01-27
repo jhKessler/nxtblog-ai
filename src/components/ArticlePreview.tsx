@@ -61,14 +61,15 @@ export default function ArticlePreview({
                 borderRadius: '0.5rem',
                 boxShadow: colors.boxShadow,
                 overflow: 'hidden',
-                margin: '0 auto' // center it, optional
+                margin: '0 auto', // center it, optional
+                height: '100%',
             }}
         >
             <div
                 style={{
                     position: 'relative',
                     height: '12rem',
-                    width: '100%'
+                    width: '100%',
                 }}
             >
                 {imageUrl ? (
@@ -105,7 +106,6 @@ export default function ArticlePreview({
             <div
                 style={{
                     padding: '1.5rem',
-                    height: '12rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between'
