@@ -10,7 +10,11 @@ export const sitemapJsonSchema = z.array(
   })
 );
 
-export default async function getSitemapJson() {
+export default async function getSitemapJson({
+  hasi18n = false,
+}: {
+  hasi18n: boolean;
+}) {
     if (
         !process.env.NXTBLOG_PROJECT_KEY ||
         !process.env.NXTBLOG_CDN_URL
@@ -20,7 +24,7 @@ export default async function getSitemapJson() {
         );
       }
       const response = await fetch(
-        `${process.env.NXTBLOG_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/sitemap`
+        `${process.env.NXTBLOG_CDN_URL}/project/${process.env.NXTBLOG_PROJECT_KEY}/sitemap?hasI18n=${hasi18n}`
       );
       const sitemap = sitemapJsonSchema.parse(await response.json());
       return sitemap;
